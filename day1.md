@@ -5,8 +5,7 @@
 * Creating a Status Check Alarm to check System and Instance failure and send an email using SNS notification
 
 ## Notes
-* I did this using the AWS browser console and cli. The **100-Days-of-Devops** repo also has information on how to perform this using Terraform, as Infrastructure as Code, which I also want to
-* experiment with in the future, but for now, I'm sticking with the console and cli.
+* I did this using the AWS browser console and cli. The **100-Days-of-Devops** repo also has information on how to perform this using Terraform, as Infrastructure as Code, which I also want to experiment with in the future, but for now, I'm sticking with the console and cli.
 
 ## Concept Explanation
 **AWS CloudWatch** is a service that monitors your **AWS** resources. this is a vital tool for anyone working with a cloud; if there's a spike in traffic or cloud misconfiguration,
