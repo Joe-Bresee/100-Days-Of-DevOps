@@ -31,7 +31,8 @@ aws cloudwatch put-metric-alarm --alarm-name cpu-mon --alarm-description "Alarm 
 
 - To test the alarm, we can use the cli to turn the alarm on.
 - Change the alarm-state from INSUFFICIENT_DATA to OK:
-  '''aws cloudwatch set-alarm-state --alarm-name "cpu-monitoring" --state-reason "initializing" --state-value OK
+  '''
+  aws cloudwatch set-alarm-state --alarm-name "cpu-monitoring" --state-reason "initializing" --state-value OK
   '''
 - Then from OK to Alarm:
 '''
