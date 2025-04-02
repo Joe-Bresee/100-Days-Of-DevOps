@@ -32,7 +32,7 @@ Today's scenario is simply setting up various SNS notifications. However, since 
 $ aws sns subscribe --topic-arn arn:aws:sns:us-west-2:123456667:my-demo-sns-topic --protocol email --notification-endpoint test@gmail.com
 {
 "SubscriptionArn": "pending confirmation"
-'''
+```
 
 * Publish to a Topic
 ```bash
@@ -40,7 +40,7 @@ $ aws sns subscribe --topic-arn arn:aws:sns:us-west-2:123456667:my-demo-sns-topi
 {
 "MessageId": "d651b7d5-2d66-58c8-abe4-e30822a3aa3e"
 }
-'''
+```
 
 * To list all the subscriptions
 ```bash
@@ -54,17 +54,17 @@ $ aws sns list-subscriptions
 "TopicArn": "arn:aws:sns:us-west-2:1234567788:HighCPUUtilization",
 "SubscriptionArn": "arn:aws:sns:us-west-2:1234567788:HighCPUUtilization:a28e2be8-40cd-4f8b-83d9-33b2c858749d"
 }
-'''
+```
 
 * Unsubscribe from a Topic
 ```bash
 aws sns unsubscribe --subscription-arn arn:aws:sns:us-west-2:1234567899:my-demo-sns-topic:f28124be-850b-4a2e-8d3e-a3dc4f7cca1a
-'''
+```
 
 * Delete a topic
 ```bash
 $ aws sns delete-topic --topic-arn arn:aws:sns:us-west-2:1234567788:my-demo-sns-topic
-'''
+```
 
 * List a topic
 ```bash
@@ -76,7 +76,7 @@ $ aws sns list-topics
 }
 ]
 }
-'''
+```
 
 ### Terraform
 * Make sure you correctly configure your aws cli on your machine and create an IAM user with sufficient privileges.
@@ -118,4 +118,4 @@ variable "alarms_email" {
 output "sns_topic" {
   value = "${aws_sns_topic.alarm.arn}"
 }
-'''
+```
