@@ -25,7 +25,7 @@ Today's scenario is simply setting up various SNS notifications. However, since 
   {
     "TopicArn": "arn:aws:sns:us-west-2:1234556667:my-demo-sns-topic"
   }
-'''
+  ```
   
 * Subscribe to a Topic
 ```bash
