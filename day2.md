@@ -20,25 +20,31 @@ Today's scenario is simply setting up various SNS notifications. However, since 
 
 ### CLI
 * Create Topic:
-  '$ aws sns create-topic --name "my-demo-sns-topic"
-{
-"TopicArn": "arn:aws:sns:us-west-2:1234556667:my-demo-sns-topic"
-}'
-
+  ```bash
+  $ aws sns create-topic --name "my-demo-sns-topic"
+  {
+    "TopicArn": "arn:aws:sns:us-west-2:1234556667:my-demo-sns-topic"
+  }
+'''
+  
 * Subscribe to a Topic
-'$ aws sns subscribe --topic-arn arn:aws:sns:us-west-2:123456667:my-demo-sns-topic --protocol email --notification-endpoint test@gmail.com
+```bash
+$ aws sns subscribe --topic-arn arn:aws:sns:us-west-2:123456667:my-demo-sns-topic --protocol email --notification-endpoint test@gmail.com
 {
 "SubscriptionArn": "pending confirmation"
-}'
+'''
 
 * Publish to a Topic
+```bash
 '$ aws sns publish --topic-arn arn:aws:sns:us-west-2:1234567:my-demo-sns-topic --message "hello from sns"
 {
 "MessageId": "d651b7d5-2d66-58c8-abe4-e30822a3aa3e"
-}'
+}
+'''
 
 * To list all the subscriptions
-'$ aws sns list-subscriptions
+```bash
+$ aws sns list-subscriptions
 {
 "Subscriptions": [
 {
@@ -47,29 +53,36 @@ Today's scenario is simply setting up various SNS notifications. However, since 
 "Protocol": "email",
 "TopicArn": "arn:aws:sns:us-west-2:1234567788:HighCPUUtilization",
 "SubscriptionArn": "arn:aws:sns:us-west-2:1234567788:HighCPUUtilization:a28e2be8-40cd-4f8b-83d9-33b2c858749d"
-},
+}
+'''
 
 * Unsubscribe from a Topic
-'aws sns unsubscribe --subscription-arn arn:aws:sns:us-west-2:1234567899:my-demo-sns-topic:f28124be-850b-4a2e-8d3e-a3dc4f7cca1a'
+```bash
+aws sns unsubscribe --subscription-arn arn:aws:sns:us-west-2:1234567899:my-demo-sns-topic:f28124be-850b-4a2e-8d3e-a3dc4f7cca1a
+'''
 
 * Delete a topic
-'$ aws sns delete-topic --topic-arn arn:aws:sns:us-west-2:1234567788:my-demo-sns-topic'
+```bash
+$ aws sns delete-topic --topic-arn arn:aws:sns:us-west-2:1234567788:my-demo-sns-topic
+'''
 
 * List a topic
-'$ aws sns list-topics
+```bash
+$ aws sns list-topics
 {
 "Topics": [
 {
 "TopicArn": "arn:aws:sns:us-west-2:123333345555:mydemosnstopic"
 }
 ]
-
-}'
+}
+'''
 
 ### Terraform
 * Make sure you correctly configure your aws cli on your machine and create an IAM user with sufficient privileges.
 
-'# main.tf
+```bash
+# main.tf
 resource "aws_sns_topic" "alarm" {
   name = "alarms-topic"
 
@@ -99,9 +112,10 @@ EOF
 }
 # variables.tf
 variable "alarms_email" {
-  default = "laprashant@gmail.com"
+  default = "<>"
 }
 # outputs.tf
 output "sns_topic" {
   value = "${aws_sns_topic.alarm.arn}"
-}'
+}
+'''
