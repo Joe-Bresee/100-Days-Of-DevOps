@@ -25,23 +25,25 @@
 
 OR
 Enter this into your console: 
-'''
+```console
 aws cloudwatch put-metric-alarm --alarm-name cpu-mon --alarm-description "Alarm when CPU exceeds 70 percent" --metric-name CPUUtilization --namespace AWS/EC2 --statistic Average --period 300 --threshold 70 --comparison-operator GreaterThanThreshold  --dimensions "Name=InstanceId,Value=i-12345678" --evaluation-periods 2 --alarm-actions arn:aws:sns:us-east-1:111122223333:MyTopic --unit Percent
-'''
+```
 
 - To test the alarm, we can use the cli to turn the alarm on.
 - Change the alarm-state from INSUFFICIENT_DATA to OK:
-  '''
-  aws cloudwatch set-alarm-state --alarm-name "cpu-monitoring" --state-reason "initializing" --state-value OK
-  '''
+```console
+aws cloudwatch set-alarm-state --alarm-name "cpu-monitoring" --state-reason "initializing" --state-value OK
+```
+
 - Then from OK to Alarm:
-'''
+```console
 aws cloudwatch set-alarm-state --alarm-name "cpu-monitoring" --state-reason "initializing" --state-value ALARM
-'''
+```
+
 - Check your email
 
-'''
-  You are receiving this email because your Amazon CloudWatch Alarm "EC2CPUUtilizationAlarm" in the Canada (Central) region has entered the ALARM state, because "initializing" at "Tuesday 01 April, 2025 19:30:51 UTC".
+```console
+You are receiving this email because your Amazon CloudWatch Alarm "EC2CPUUtilizationAlarm" in the Canada (Central) region has entered the ALARM state, because "initializing" at "Tuesday 01 April, 2025 19:30:51 UTC".
 
 View this alarm in the AWS Management Console:
 <>
@@ -83,3 +85,5 @@ Please do not reply directly to this email. If you have any questions or comment
 
 ### Scenario 2: Creating a Status Check Alarm to check System and Instance failure and send an email using SNS notification
 - On the **AWS console**, this was simply navigating to your instance, and creating a status check alarm. This will fire to the SNS topic if the CU utilization check failed.
+
+```
