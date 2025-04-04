@@ -1,4 +1,4 @@
-# Day 3: Introduction to CloudTrail
+a# Day 3: Introduction to CloudTrail
 
 ## Problem Statement: 
 Logs all the API calls in an AWS account(including AWS Console, CLI and API/SDK calls)
@@ -12,6 +12,13 @@ Today I will be completing this via the **AWS CloudShell** (CLI)
 * To create an ongoing record of activity, you create something called a **trail**. A **trail** is a service to send event logs to a **S3 bucket**.
 * A trail allows options like regions, event filtering, data, API activity, Lambda invokation, storage location, encryption & SNS notifications. This allows one to make their events easier to track, filter, and manage, since for example some regulations are region dependent (European Union's strict privacy laws, etc.) or some events require immediate attention and action.
 * Trails have file integrity validation, meaning details on any changes to the log can be viewed.
+
+### Create a S3 bucket
+* Note your s3 bucket shares a public namespace so make it memorable but unique.
+* Note you will have to enable CloudTrail on your bucket's policy.
+```console
+aws s3 mb s3://mytests3bucketforcloudtrail --region <your-region>
+```
 
 ### Create Trail
 
